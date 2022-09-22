@@ -37,6 +37,16 @@ services:
     networks:
       - api-db-network
 
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports: 
+      - 3000:3000
+    networks:
+      - api-db-network
+    depends_on:
+      - db-usuarios
+
   db-pg-admin:
     container_name: db-pg-admin
     image: dpage/pgadmin4
